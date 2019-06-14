@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SysInfo</title>
+    <style>
+        table,th,tr{
+            border:1px solid black,
+            border-collapse:collapse,
+        }
+    </style>
+</head>
+<body>
+        <h1>PID: {{pid}}</h1>
+        <h1>Sys Path: {{sysPath}}</h1>
+        <table border="1">
+            <tr>
+                <th style="text-align:center;border:1px solid black;">Process PID</th>
+                <th style="text-align:center;border:1px solid black;">Process Name</th>
+                <th style="text-align:center;border:1px solid black;">Peak Wset</th>
+                <th style="text-align:center;border:1px solid black;">Vir. Mem Storage</th>
+            </tr>
+        {% for process in context %}
+            <tr>
+                {% for p in process %}
+                <td style="text-align:center;">{{p}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+</body>
+</html>

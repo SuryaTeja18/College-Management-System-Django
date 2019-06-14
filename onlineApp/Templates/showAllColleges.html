@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Colleges</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+<body>
+<nav class="navbar title has-text-black has-background-primary">
+    <a href="{%url 'colleges' %}" class="navbar-item has-background-primary">Colleges</a>
+    <a href="{%url 'logout' %}" class="button navbar-end has-background-primary">Logout</a>
+</nav>
+<center>
+<table border="1" class="table is-striped is-bordered is-hoverable is-fullwidth">
+    <tr>
+       <th style="background-color:lightblue;border:1px solid black;"><center>College Name</center></th>
+       <th style="background-color:lightblue;border:1px solid black;"><center>Acronym</center></th>
+       <th style="background-color:lightblue;border:1px solid black;"><center>Location</center></th>
+       <th style="background-color:lightblue;border:1px solid black;"><center>Contact</center></th>
+       <th colspan="2" style="background-color:lightblue;border:1px solid black;"><center>Operations</center></th>
+    </tr>
+    {% for item in colleges %}
+    <tr>
+        <td><center><a href="http://127.0.0.1:8000/colleges/{{item.id}}">{{item.name}}</a></center></td>
+        <td><center>{{item.acronym}}</center></td>
+        <td><center>{{item.location}}</center></td>
+        <td><center>{{item.contact}}</center></td>
+
+        <td><center><a href="http://127.0.0.1:8000/college/edit/{{item.id}}"><button>Edit</button></a></center></td>
+        <td><center><a href="http://127.0.0.1:8000/college/delete/{{item.id}}"><button>Delete</button></a></center></td>
+    </tr>
+    {% endfor %}
+</table>
+    {% if onlineApp.college.Can_add_college in permissions %}
+ <a href="http://127.0.0.1:8000/college/add/"><button class="button has-background-success">+ Add College</button></a></center>
+   {% endif %}
+</body>
+</html>

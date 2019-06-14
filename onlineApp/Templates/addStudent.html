@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{op}} Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+<body>
+<h1 class="title has-text-black has-background-primary-light">{{op}}</h1>
+<center>
+    <form method="POST" class="form">
+        {% csrf_token %}
+        <table border="1" class="table">
+            {{form1.as_table}}
+            {{form2.as_table}}
+        </table>
+        <button type="submit" class="button">Submit</button>
+    </form>
+</center>
+</body>
+</html>

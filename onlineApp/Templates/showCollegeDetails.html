@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{college}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+<body>
+    <h1 class="title has-text-black has-background-primary" style="height:50px;">{{college}} Students</h1>
+    <center>
+    <table border="1" class="table is-striped is-bordered is-hoverable is-fullwidth">
+        <tr>
+            <th style="background-color:lightblue;border:1px solid black;text-align:center;">Student Name</th>
+            <th style="background-color:lightblue;border:1px solid black;text-align:center;">Student DOB</th>
+            <th style="background-color:lightblue;border:1px solid black;text-align:center;">Student email</th>
+            <th style="background-color:lightblue;border:1px solid black;text-align:center;">Student db_folder</th>
+            <th style="background-color:lightblue;border:1px solid black;text-align:center;" colspan="2">Operations</th>
+        </tr>
+        {% for stu in students %}
+        <tr>
+            <td>{{stu.name}}</td>
+            <td>{{stu.dob}}</td>
+            <td>{{stu.email}}</td>
+            <td>{{stu.db_folder}}</td>
+            <!--<td>{{stu.total}}</td>-->
+            <td><a href="http://127.0.0.1:8000/student/edit/{{stu.id}}"><button>Edit</button></a></td>
+            <td><a href="http://127.0.0.1:8000/student/delete/{{stu.id}}"><button>Delete</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="http://127.0.0.1:8000/student/add/{{id}}"><button class="button has-background-success">+ Add Student</button></a>
+    </center>
+</body>
+</html>
